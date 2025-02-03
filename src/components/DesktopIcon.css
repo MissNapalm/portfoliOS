@@ -1,0 +1,28 @@
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90px;
+  height: 100px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  font-family: "Arial", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.desktop-icon:hover {
+  transform: scale(1.1);
+}
+
+.icon {
+  font-size: 2.5rem; /* Matches Tailwind's text-4xl */
+}
+
+.icon-text {
+  font-size: 0.875rem; /* Matches Tailwind's text-sm */
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
