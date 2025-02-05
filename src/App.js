@@ -5,7 +5,7 @@ import DesktopIcon from "./components/DesktopIcon";
 import {
   AboutMeContent,
   SkillsContent,
-  EthicalHacksContent,
+  SecurityContent,
   NonprofitContent,
   SettingsContent,
 } from "./components/WindowContent";
@@ -34,8 +34,8 @@ const App = () => {
       content = <AboutMeContent />;
     } else if (app.name === "Skills") {
       content = <SkillsContent />;
-    } else if (app.name === "Ethical Hacks") {
-      content = <EthicalHacksContent />;
+    } else if (app.name === "Security") {
+      content = <SecurityContent />;
     } else if (app.name === "Nonprofit") {
       content = <NonprofitContent />;
     } else if (app.name === "Settings") {
@@ -174,7 +174,7 @@ const App = () => {
           apps={[
             { name: "About Me", icon: "📜", content: "About Me Content" },
             { name: "Skills", icon: "📂", content: "Skills Content" },
-            { name: "Ethical Hacks", icon: "🛡️", content: "Ethical Hacks Content" },
+            { name: "Security", icon: "🛡️", content: "Security Content" },
             { name: "Nonprofit", icon: "🌍", content: "Nonprofit Content" },
             { name: "Settings", icon: "⚙️", content: "Settings Content" },
           ]}
