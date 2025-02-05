@@ -102,22 +102,192 @@ export const AboutMeContent = () => (
     </div>
   </div>
 );
+
 export const SkillsContent = () => (
-  <div style={sectionStyle}>
-    <h1 style={{ fontSize: "32px", textAlign: "center", marginBottom: "30px" }}>Skills</h1>
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px" }}>
-      {[
-        { title: "Penetration Testing", desc: "Red-team methodologies with Metasploit, Burp Suite, Flipper Zero." },
-        { title: "Software Development", desc: "Building scalable applications using Python, React, PostgreSQL." },
-        { title: "Digital Forensics", desc: "Memory analysis, intrusion detection, forensic investigations." },
-        { title: "Cloud Security", desc: "Deploying IDS solutions, securing AWS & Google Cloud infrastructures." },
-        { title: "OSINT & Threat Intelligence", desc: "Social media threat monitoring, public records analysis." },
-      ].map((skill, index) => (
-        <div key={index} style={{ padding: "20px", borderRadius: "12px", background: "rgba(255, 255, 255, 0.05)" }}>
-          <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>{skill.title}</h2>
-          <p style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.7)" }}>{skill.desc}</p>
+  <div style={{
+    padding: '40px',
+    color: 'rgba(255, 255, 255, 0.9)',
+    maxWidth: '900px',
+    margin: '0 auto',
+  }}>
+    <div style={{
+      display: 'flex',
+      gap: '40px',
+      marginBottom: '40px',
+      alignItems: 'center'
+    }}>
+      <div style={{
+        fontSize: '80px',
+        width: '160px',
+        height: '160px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'rgba(255, 255, 255, 0.05)',
+        borderRadius: '20px',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+      }}>
+        ⚡
+      </div>
+      
+      <div style={{ flex: 1 }}>
+        <h1 style={{
+          fontSize: '36px',
+          fontWeight: 'bold',
+          marginBottom: '15px',
+          background: 'linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}>
+          Skills
+        </h1>
+        <div style={{
+          display: 'flex',
+          gap: '10px',
+          flexWrap: 'wrap'
+        }}>
+          {['Offensive Security', 'App Development', 'Network Architecture', 'Threat Analysis', 'System Design'].map(tag => (
+            <span key={tag} style={{
+              padding: '6px 12px',
+              borderRadius: '15px',
+              background: 'rgba(255, 255, 255, 0.1)',
+              fontSize: '14px',
+            }}>
+              {tag}
+            </span>
+          ))}
         </div>
-      ))}
+      </div>
+    </div>
+
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+      gap: '25px',
+      marginTop: '30px'
+    }}>
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.03)',
+        padding: '30px',
+        borderRadius: '20px',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{ fontSize: '28px', marginBottom: '15px' }}></div>
+        <h2 style={{
+          fontSize: '22px',
+          marginBottom: '15px',
+          color: 'rgba(255, 255, 255, 0.9)',
+        }}>
+          Penetration Testing
+        </h2>
+        <p style={{ lineHeight: '1.6' }}>
+          Master of network infiltration using custom-crafted exploits and sophisticated attack vectors. Expert in Metasploit, 
+          Burp Suite, and cutting-edge wireless hacking tools. Capable of bypassing enterprise-grade security systems and 
+          conducting thorough vulnerability assessments.
+        </p>
+      </div>
+
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.03)',
+        padding: '30px',
+        borderRadius: '20px',
+      }}>
+        <div style={{ fontSize: '28px', marginBottom: '15px' }}></div>
+        <h2 style={{
+          fontSize: '22px',
+          marginBottom: '15px',
+          color: 'rgba(255, 255, 255, 0.9)',
+        }}>
+          Full Stack Engineering
+        </h2>
+        <p style={{ lineHeight: '1.6' }}>
+          Architect of scalable, secure applications using React, Node.js, and Python. Specialized in building 
+          high-performance systems with military-grade security protocols. Expert in implementing advanced authentication 
+          systems and real-time data processing pipelines.
+        </p>
+      </div>
+
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.03)',
+        padding: '30px',
+        borderRadius: '20px',
+      }}>
+        <div style={{ fontSize: '28px', marginBottom: '15px' }}></div>
+        <h2 style={{
+          fontSize: '22px',
+          marginBottom: '15px',
+          color: 'rgba(255, 255, 255, 0.9)',
+        }}>
+          Digital Forensics
+        </h2>
+        <p style={{ lineHeight: '1.6' }}>
+          Elite-level expertise in digital evidence collection and analysis. Proficient with advanced memory forensics 
+          tools and custom-built analysis solutions. Specialist in reconstructing digital crime scenes and tracing 
+          sophisticated attack patterns.
+        </p>
+      </div>
+
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.03)',
+        padding: '30px',
+        borderRadius: '20px',
+      }}>
+        <div style={{ fontSize: '28px', marginBottom: '15px' }}></div>
+        <h2 style={{
+          fontSize: '22px',
+          marginBottom: '15px',
+          color: 'rgba(255, 255, 255, 0.9)',
+        }}>
+          Cloud Infrastructure
+        </h2>
+        <p style={{ lineHeight: '1.6' }}>
+          Advanced practitioner in AWS and Google Cloud security architectures. Expert in deploying zero-trust 
+          networks and implementing comprehensive cloud security solutions. Specialized in building resilient, 
+          scalable infrastructure with bulletproof security measures.
+        </p>
+      </div>
+
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.03)',
+        padding: '30px',
+        borderRadius: '20px',
+      }}>
+        <div style={{ fontSize: '28px', marginBottom: '15px' }}></div>
+        <h2 style={{
+          fontSize: '22px',
+          marginBottom: '15px',
+          color: 'rgba(255, 255, 255, 0.9)',
+        }}>
+          Threat Intelligence
+        </h2>
+        <p style={{ lineHeight: '1.6' }}>
+          Master of OSINT techniques and threat actor profiling. Expert in developing predictive threat models 
+          and implementing proactive defense strategies. Specialized in tracking advanced persistent threats 
+          and analyzing emerging attack patterns.
+        </p>
+      </div>
+
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.03)',
+        padding: '30px',
+        borderRadius: '20px',
+      }}>
+        <div style={{ fontSize: '28px', marginBottom: '15px' }}></div>
+        <h2 style={{
+          fontSize: '22px',
+          marginBottom: '15px',
+          color: 'rgba(255, 255, 255, 0.9)',
+        }}>
+          Secure Development
+        </h2>
+        <p style={{ lineHeight: '1.6' }}>
+          Expert in implementing defense-in-depth strategies and secure coding practices. Master of application 
+          hardening techniques and security-first architecture. Specialized in building systems that remain 
+          impenetrable against sophisticated cyber threats.
+        </p>
+      </div>
     </div>
   </div>
 );
