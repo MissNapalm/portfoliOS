@@ -10,6 +10,7 @@ import {
   SettingsContent,
 } from "./components/WindowContent";
 import "./App.css";
+import HackerTerminal from "./components/HackerTerminal";
 
 const App = () => {
   const dockHeight = 50;
@@ -25,27 +26,55 @@ const App = () => {
   const [buttonVisible, setButtonVisible] = useState(true);
   const [blackScreenOpacity, setBlackScreenOpacity] = useState(1);
 
-  const openWindow = (app) => {
-    let content = app.content;
-    let width = 625;
-    let height = 600;
 
-    if (app.name === "About Me") {
-      content = <AboutMeContent />;
-    } else if (app.name === "Skills") {
-      content = <SkillsContent />;
-    } else if (app.name === "Security") {
-      content = <SecurityContent />;
-    } else if (app.name === "Nonprofit") {
-      content = <NonprofitContent />;
-    } else if (app.name === "Settings") {
-      content = <SettingsContent />;
-    }
-    setWindows((prev) => [
-      ...prev,
-      { id: Date.now(), title: app.name, content: content, width: width, height: height },
-    ]);
-  };
+const openWindow = (app) => {
+  let content = app.content;
+  let width = 625;
+  let height = 600;
+
+  if (app.name === "About Me") {
+    content = <AboutMeContent />;
+  } else if (app.name === "Skills") {
+    content = <SkillsContent />;
+  } else if (app.name === "Security") {
+    content = <SecurityContent />;
+  } else if (app.name === "Nonprofit") {
+    content = <NonprofitContent />;
+  } else if (app.name === "Settings") {
+    content = <SettingsContent />;
+  } else if (app.name === "Documents") { // ✅ Open hacker terminal when clicking Documents
+    content = (
+      <div style={{ textAlign: "center", padding: "20px" }}>
+        <h2>Terminal - Root Access</h2>
+        <HackerTerminal />
+      </div>
+    );
+  } else if (app.name === "Projects") { // ✅ Rickroll when clicking Projects
+    content = (
+      <div style={{ textAlign: "center", padding: "20px" }}>
+        <h2>Important Project Files</h2>
+        <img 
+          src={`${process.env.PUBLIC_URL}/rickroll.gif`}  // ✅ Show Rickroll GIF
+          alt="Rickroll" 
+          style={{ maxWidth: "100%", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0,0,0,0.2)" }} 
+        />
+      </div>
+    );
+  }
+  
+  setWindows((prev) => [
+    ...prev,
+    { id: Date.now(), title: app.name, content: content, width: 625, height: 600 },
+  ]);
+  
+
+  setWindows((prev) => [
+    ...prev,
+    { id: Date.now(), title: app.name, content: content, width: width, height: height },
+  ]);
+};
+
+    
 
   const closeWindow = (id) => {
     setWindows((prev) => prev.filter((win) => win.id !== id));
@@ -170,16 +199,18 @@ const App = () => {
 
       <div
       >
-        <Dock
-          apps={[
-            { name: "About Me", icon: "📜", content: "About Me Content" },
-            { name: "Skills", icon: "📂", content: "Skills Content" },
-            { name: "Security", icon: "🛡️", content: "Security Content" },
-            { name: "Nonprofit", icon: "🌍", content: "Nonprofit Content" },
-            { name: "Settings", icon: "⚙️", content: "Settings Content" },
-          ]}
-          onAppClick={openWindow}
-        />
+    <Dock
+      apps={[
+        { name: "About Me", icon: "📜", content: "About Me Content" },
+        { name: "Skills", icon: "📂", content: "Skills Content" },
+        { name: "Security", icon: "🛡️", content: "Security Content" },
+        { name: "Nonprofit", icon: "🌍", content: "Nonprofit Content" },
+        { name: "Settings", icon: "⚙️", content: "Settings Content" },
+      ]}
+      onAppClick={openWindow}
+      booted={booted} // Pass booted state
+    />
+
       </div>
 
       {windows.map((win) => (

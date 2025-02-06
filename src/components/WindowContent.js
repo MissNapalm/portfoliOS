@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";  // ✅ Correct import
 
 const sectionStyle = {
   padding: "40px",
@@ -147,7 +147,7 @@ export const SkillsContent = () => (
           gap: '10px',
           flexWrap: 'wrap'
         }}>
-          {['Offensive Security', 'App Development', 'Network Architecture', 'Threat Analysis', 'System Design'].map(tag => (
+          {['Frontend Development', 'Full Stack Engineering', 'UI/UX Design', 'Security Engineering', 'Database Architecture'].map(tag => (
             <span key={tag} style={{
               padding: '6px 12px',
               borderRadius: '15px',
@@ -180,12 +180,12 @@ export const SkillsContent = () => (
           marginBottom: '15px',
           color: 'rgba(255, 255, 255, 0.9)',
         }}>
-          Penetration Testing
+          Frontend Development
         </h2>
         <p style={{ lineHeight: '1.6' }}>
-          Master of network infiltration using custom-crafted exploits and sophisticated attack vectors. Expert in Metasploit, 
-          Burp Suite, and cutting-edge wireless hacking tools. Capable of bypassing enterprise-grade security systems and 
-          conducting thorough vulnerability assessments.
+          Expert in modern React.js development with a focus on building beautiful, responsive interfaces. 
+          Skilled in state management, hooks, and component architecture. Proficient in creating 
+          pixel-perfect designs and implementing complex UI/UX patterns with optimal performance.
         </p>
       </div>
 
@@ -200,12 +200,12 @@ export const SkillsContent = () => (
           marginBottom: '15px',
           color: 'rgba(255, 255, 255, 0.9)',
         }}>
-          Full Stack Engineering
+          Backend Engineering
         </h2>
         <p style={{ lineHeight: '1.6' }}>
-          Architect of scalable, secure applications using React, Node.js, and Python. Specialized in building 
-          high-performance systems with military-grade security protocols. Expert in implementing advanced authentication 
-          systems and real-time data processing pipelines.
+          Proficient in Node.js and Express.js for building robust server applications. Experienced in designing 
+          and implementing RESTful APIs, handling authentication, and managing complex database operations with 
+          PostgreSQL. Strong focus on scalable and maintainable architectures.
         </p>
       </div>
 
@@ -220,12 +220,12 @@ export const SkillsContent = () => (
           marginBottom: '15px',
           color: 'rgba(255, 255, 255, 0.9)',
         }}>
-          Digital Forensics
+          Database Architecture
         </h2>
         <p style={{ lineHeight: '1.6' }}>
-          Elite-level expertise in digital evidence collection and analysis. Proficient with advanced memory forensics 
-          tools and custom-built analysis solutions. Specialist in reconstructing digital crime scenes and tracing 
-          sophisticated attack patterns.
+          Advanced experience with PostgreSQL database design and optimization. Skilled in writing complex queries, 
+          designing efficient schemas, and implementing secure data access patterns. Expert in database migration 
+          strategies and performance tuning.
         </p>
       </div>
 
@@ -240,12 +240,12 @@ export const SkillsContent = () => (
           marginBottom: '15px',
           color: 'rgba(255, 255, 255, 0.9)',
         }}>
-          Cloud Infrastructure
+          Offensive Security
         </h2>
         <p style={{ lineHeight: '1.6' }}>
-          Advanced practitioner in AWS and Google Cloud security architectures. Expert in deploying zero-trust 
-          networks and implementing comprehensive cloud security solutions. Specialized in building resilient, 
-          scalable infrastructure with bulletproof security measures.
+          Experienced in penetration testing and vulnerability assessment. Skilled in identifying and exploiting 
+          web application vulnerabilities, conducting security audits, and developing custom security tools. 
+          Proficient with industry-standard penetration testing frameworks.
         </p>
       </div>
 
@@ -260,12 +260,12 @@ export const SkillsContent = () => (
           marginBottom: '15px',
           color: 'rgba(255, 255, 255, 0.9)',
         }}>
-          Threat Intelligence
+          Defensive Security
         </h2>
         <p style={{ lineHeight: '1.6' }}>
-          Master of OSINT techniques and threat actor profiling. Expert in developing predictive threat models 
-          and implementing proactive defense strategies. Specialized in tracking advanced persistent threats 
-          and analyzing emerging attack patterns.
+          Expert in implementing secure coding practices and building robust defense mechanisms. Skilled in 
+          securing web applications against common attack vectors, implementing authentication systems, and 
+          developing security-first architectures with multiple layers of protection.
         </p>
       </div>
 
@@ -280,12 +280,12 @@ export const SkillsContent = () => (
           marginBottom: '15px',
           color: 'rgba(255, 255, 255, 0.9)',
         }}>
-          Secure Development
+          Full Stack Integration
         </h2>
         <p style={{ lineHeight: '1.6' }}>
-          Expert in implementing defense-in-depth strategies and secure coding practices. Master of application 
-          hardening techniques and security-first architecture. Specialized in building systems that remain 
-          impenetrable against sophisticated cyber threats.
+          Skilled in connecting frontend and backend systems with secure, efficient architectures. Experienced 
+          in developing full stack applications from conception to deployment, with expertise in both client-side 
+          and server-side optimization techniques.
         </p>
       </div>
     </div>
@@ -336,7 +336,7 @@ export const SecurityContent = () => (
           gap: '10px',
           flexWrap: 'wrap'
         }}>
-          {['Penetration Testing', 'Custom Malware', 'Network Forensics', 'Application Security', 'Security Counseling'].map(tag => (
+          {['Penetration Testing', 'Custom Malware', 'Digital Forensics', 'Application Security', 'Security Counseling'].map(tag => (
             <span key={tag} style={{
               padding: '6px 12px',
               borderRadius: '15px',
@@ -403,7 +403,7 @@ export const SecurityContent = () => (
           marginBottom: '15px',
           color: 'rgba(255, 255, 255, 0.9)',
         }}>
-          Offensive Security
+          Penetration Testing
         </h2>
         <p>
           On the offensive side, I have successfully exploited fully patched Windows 11 machines <strong>with 
@@ -452,7 +452,7 @@ export const SecurityContent = () => (
         </h2>
         <p>
           My forensic work includes packet analysis on a simulated wiretap to trace a cybercriminal operating from a VM 
-          to send harassing messages. I used <strong>Wireshark</strong> and <strong>network traffic analysis</strong> 
+          to send harassing messages. I used <strong>Wireshark</strong> and <strong>network traffic analysis </strong> 
           techniques to identify patterns, track IP movements, and correlate activity to the suspect. I've also 
           conducted <strong>memory scraping attacks</strong> to extract credentials from live systems, demonstrating 
           the risk of improperly secured process memory.
@@ -499,15 +499,125 @@ export const NonprofitContent = () => (
   </div>
 );
 
-export const SettingsContent = () => (
-  <div style={sectionStyle}>
-    <h1 style={{ fontSize: "32px", textAlign: "center", marginBottom: "30px" }}>Settings</h1>
-    <div style={{ display: "grid", gap: "20px", maxWidth: "600px", margin: "0 auto" }}>
-      {["Dark Mode", "Startup Sound", "Notifications"].map((setting, index) => (
-        <div key={index} style={{ padding: "20px", borderRadius: "15px", background: "rgba(255, 255, 255, 0.05)" }}>
-          <span>{setting}</span>
+export const SettingsContent = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  const [startupSound, setStartupSound] = useState(true);
+  const [notifications, setNotifications] = useState(true);
+  const [sliderValue, setSliderValue] = useState(42);
+  const [dropdownValue, setDropdownValue] = useState("Waffles");
+  const [mysteryToggle, setMysteryToggle] = useState(false);
+  const [selfDestruct, setSelfDestruct] = useState(false);
+
+  return (
+    <div style={{
+      padding: '40px',
+      color: 'rgba(255, 255, 255, 0.9)',
+      maxWidth: '900px',
+      margin: '0 auto',
+      textAlign: "center"
+    }}>
+      {/* Title */}
+      <div style={{ fontSize: '60px', marginBottom: '20px' }}>⚙️</div>
+      <h1 style={{
+        fontSize: "36px",
+        fontWeight: "bold",
+        marginBottom: "20px",
+        background: "linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+      }}>
+        Useless Settings
+      </h1>
+
+      <div style={{
+        display: "grid",
+        gap: "20px",
+        maxWidth: "600px",
+        margin: "0 auto",
+      }}>
+
+        {/* Dark Mode */}
+        <div style={settingStyle}>
+          <span>Dark Mode</span>
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            style={buttonStyle(darkMode)}
+          >
+            {darkMode ? "Enabled" : "Disabled"}
+          </button>
         </div>
-      ))}
+
+        {/* Startup Sound */}
+        <div style={settingStyle}>
+          <span>Startup Sound</span>
+          <button
+            onClick={() => setStartupSound(!startupSound)}
+            style={buttonStyle(startupSound)}
+          >
+            {startupSound ? "Enabled" : "Muted"}
+          </button>
+        </div>
+
+        {/* Notifications */}
+        <div style={settingStyle}>
+          <span>Notifications</span>
+          <button
+            onClick={() => setNotifications(!notifications)}
+            style={buttonStyle(notifications)}
+          >
+            {notifications ? "ON" : "OFF"}
+          </button>
+        </div>
+
+
+        {/* Mystery Toggle */}
+        <div style={settingStyle}>
+          <span>Mystery Setting</span>
+          <button
+            onClick={() => setMysteryToggle(!mysteryToggle)}
+            style={buttonStyle(mysteryToggle)}
+          >
+            {mysteryToggle ? "Activated" : "Inactive"}
+          </button>
+        </div>
+
+        {/* Self Destruct */}
+        <div style={settingStyle}>
+          <span>Self-Destruct Mode</span>
+          <button
+            onClick={() => setSelfDestruct(!selfDestruct)}
+            style={{
+              ...buttonStyle(selfDestruct),
+              backgroundColor: selfDestruct ? "red" : "black",
+              color: selfDestruct ? "yellow" : "white",
+            }}
+          >
+            {selfDestruct ? "RUN" : "Press Me"}
+          </button>
+        </div>
+
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
+/* ✅ Keep only one declaration of `settingStyle` */
+const settingStyle = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  background: "rgba(255, 255, 255, 0.05)",
+  padding: "15px 20px",
+  borderRadius: "10px",
+  fontSize: "18px",
+};
+
+const buttonStyle = (active) => ({
+  padding: "8px 15px",
+  borderRadius: "8px",
+  background: active ? "limegreen" : "gray",
+  color: "white",
+  border: "none",
+  cursor: "pointer",
+  fontWeight: "bold",
+});

@@ -1,25 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-const Dock = ({ apps, onAppClick }) => {
+const Dock = ({ apps, onAppClick, booted }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
-    // Slide down the dock after a short delay
-    setTimeout(() => setIsVisible(true), 2500);
-  }, []);
-
-  const handleAppClick = (app) => {
-    onAppClick(app);
-  };
-
-  const handleMouseEnter = (index) => {
-    setHoveredIndex(index);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredIndex(null);
-  };
+    if (booted) {
+      setTimeout(() => setIsVisible(true), 500); // Delay after boot-up
+    }
+  }, [booted]); // Only runs when `booted` changes
 
   return (
     <div
@@ -46,9 +35,9 @@ const Dock = ({ apps, onAppClick }) => {
         <div
           key={index}
           className="dock-icon-container"
-          onClick={() => handleAppClick(app)}
-          onMouseEnter={() => handleMouseEnter(index)}
-          onMouseLeave={handleMouseLeave}
+          onClick={() => onAppClick(app)}
+          onMouseEnter={() => setHoveredIndex(index)}
+          onMouseLeave={() => setHoveredIndex(null)}
           style={{
             display: "flex",
             flexDirection: "column",
@@ -61,35 +50,17 @@ const Dock = ({ apps, onAppClick }) => {
           <div
             className="dock-icon"
             style={{
-              margin: "0",
-              cursor: "pointer",
-              fontSize: app.icon.includes("img") ? "0px" : "50px",
+              fontSize: "50px",
               transition: "transform 0.3s ease, box-shadow 0.3s ease",
               transform: hoveredIndex === index ? "scale(1.3)" : "scale(1)",
-              textShadow:
-                hoveredIndex === index
-                  ? "0 0 20px rgba(255, 255, 255, 0.8)"
-                  : "none",
+              textShadow: hoveredIndex === index ? "0 0 20px rgba(255, 255, 255, 0.8)" : "none",
             }}
           >
-            {typeof app.icon === "string" ? (
-              app.icon
-            ) : (
-              <img
-                src={app.icon.props.src}
-                alt={app.icon.props.alt}
-                style={{
-                  width: "50px",
-                  height: "50px",
-                  borderRadius: "50%",
-                }}
-              />
-            )}
+            {app.icon}
           </div>
           <span
             style={{
               color: "white",
-              fontFamily: "Roboto Condensed, sans-serif",
               fontSize: "15px",
               marginTop: "8px",
               opacity: hoveredIndex === index ? 1 : 0.7,
