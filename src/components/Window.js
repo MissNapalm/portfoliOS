@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 
 const Window = ({ title, content, onClose }) => {
   const [position, setPosition] = useState({
-    x: (window.innerWidth - 625) / 2,
-    y: (window.innerHeight - 600) / 2
+    x: (window.innerWidth - 665) / 2,
+    y: (window.innerHeight - 630) / 2
   });
-  const [size, setSize] = useState({ width: 625, height: 600 });
+  const [size, setSize] = useState({ width: 650, height: 630 });
   const [dragging, setDragging] = useState(false);
   const [resizing, setResizing] = useState(false);
   const dragOffset = useRef({ x: 0, y: 0 });

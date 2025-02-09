@@ -16,64 +16,87 @@ const App = () => {
   const dockHeight = 50;
   const [windows, setWindows] = useState([]);
   const [icons, setIcons] = useState([
-    { id: 1, name: "Documents", icon: "📄", content: "Documents Content", position: { x: 20, y: 130 } },
-    { id: 2, name: "Projects", icon: "📁", content: "Projects Content", position: { x: 20, y: 230 } },
+    { id: 1, name: "Terminal", icon: "💻", content: "Documents Content", position: { x: 20, y: 130 } },
+    { id: 2, name: "Browser", icon: "🌐", content: "Projects Content", position: { x: 20, y: 230 } },
     { id: 3, name: "Downloads", icon: "⬇️", content: "Downloads Content", position: { x: 20, y: 330 } },
-    { id: 4, name: "Recycle Bin", icon: "🗑️", content: "Recycle Bin Content", position: { x: 20, y: 430 } },
+    { id: 4, name: "Recycle Bin", icon: "🗑️", content: "I'm out of cute easter egg ideas...for now. Until then, enjoy this empty space XD", position: { x: 20, y: 430 } },
   ]);
   const [booted, setBooted] = useState(false);
   const [fadeInStage, setFadeInStage] = useState(0);
   const [buttonVisible, setButtonVisible] = useState(true);
   const [blackScreenOpacity, setBlackScreenOpacity] = useState(1);
 
-
-const openWindow = (app) => {
-  let content = app.content;
-  let width = 625;
-  let height = 600;
-
-  if (app.name === "About Me") {
-    content = <AboutMeContent />;
-  } else if (app.name === "Skills") {
-    content = <SkillsContent />;
-  } else if (app.name === "Security") {
-    content = <SecurityContent />;
-  } else if (app.name === "Nonprofit") {
-    content = <NonprofitContent />;
-  } else if (app.name === "Settings") {
-    content = <SettingsContent />;
-  } else if (app.name === "Documents") { // ✅ Open hacker terminal when clicking Documents
-    content = (
-      <div style={{ textAlign: "center", padding: "20px" }}>
-        <h2>Terminal - Root Access</h2>
-        <HackerTerminal />
-      </div>
-    );
-  } else if (app.name === "Projects") { // ✅ Rickroll when clicking Projects
-    content = (
-      <div style={{ textAlign: "center", padding: "20px" }}>
-        <h2>Important Project Files</h2>
-        <img 
-          src={`${process.env.PUBLIC_URL}/rickroll.gif`}  // ✅ Show Rickroll GIF
-          alt="Rickroll" 
-          style={{ maxWidth: "100%", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0,0,0,0.2)" }} 
-        />
-      </div>
-    );
-  }
+  const openWindow = (app) => {
+    let content = app.content;
+    let width = 625;
+    let height = 600;
   
-  setWindows((prev) => [
-    ...prev,
-    { id: Date.now(), title: app.name, content: content, width: 625, height: 600 },
-  ]);
+    if (app.name === "About Me") {
+      content = <AboutMeContent />;
+    } else if (app.name === "Skills") {
+      content = <SkillsContent />;
+    } else if (app.name === "Security") {
+      content = <SecurityContent />;
+    } else if (app.name === "Nonprofit") {
+      content = <NonprofitContent />;
+    } else if (app.name === "Settings") {
+      content = <SettingsContent />;
+    } else if (app.name === "Terminal") { // ✅ Open hacker terminal when clicking Documents
+      content = (
+        <div style={{ textAlign: "center", padding: "20px" }}>
+          <h2>Type fast to hack! (This is really how it works btw)</h2>
+          <HackerTerminal />
+        </div>
+      );
+    } else if (app.name === "Browser") { // ✅ Rickroll when clicking Projects
+      content = (
+        <div style={{ textAlign: "center", padding: "20px" }}>
+          <h2>The only web page you need</h2>
+          <img 
+            src={`${process.env.PUBLIC_URL}/rickroll.gif`}  // ✅ Show Rickroll GIF
+            alt="Rickroll" 
+            style={{ maxWidth: "100%", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0,0,0,0.2)" }} 
+          />
+        </div>
+      );
+    } else if (app.name === "Downloads") { // ✅ Fake file explorer with The Game joke
+      content = (
+        <div style={{ padding: "20px" }}>
+          <h2>Downloads</h2>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+            gap: "10px",
+            marginTop: "15px"
+          }}>
+            {["You.txt", "Have", "Just", "Lost.txt", "The.txt", "Game.txt"].map((file, index) => (
+              <div key={index} style={{
+                padding: "10px",
+                borderRadius: "8px",
+                background: "rgba(255, 255, 255, 0.1)",
+                textAlign: "center",
+                fontSize: "16px",
+                cursor: "pointer",
+                transition: "background 0.2s",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)"
+              }}
+              onClick={() => alert("You lost The Game.")} // 😂 Clicking any file triggers The Game joke
+              >
+                📄 {file}
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
   
-
-  setWindows((prev) => [
-    ...prev,
-    { id: Date.now(), title: app.name, content: content, width: width, height: height },
-  ]);
-};
-
+    // ✅ Single state update, removed duplicate `setWindows` call
+    setWindows((prev) => [
+      ...prev,
+      { id: Date.now(), title: app.name, content: content, width: width, height: height },
+    ]);
+  };
+  
     
 
   const closeWindow = (id) => {
@@ -100,8 +123,8 @@ const openWindow = (app) => {
 
   const handleBoot = () => {
     setTimeout(() => setFadeInStage(1), 100);
-    setTimeout(() => setFadeInStage(2), 2300);
-    setTimeout(() => setFadeInStage(3), 2300);
+    setTimeout(() => setFadeInStage(2), 1800);
+    setTimeout(() => setFadeInStage(3), 1900);
 
     setTimeout(() => setBlackScreenOpacity(0), 800);
     setTimeout(() => setButtonVisible(false), 100);

