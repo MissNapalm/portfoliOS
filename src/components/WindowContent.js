@@ -223,9 +223,8 @@
             Database Architecture
           </h2>
           <p style={{ lineHeight: '1.6' }}>
-            Advanced experience with PostgreSQL database design and optimization. Skilled in writing complex queries, 
-            designing efficient schemas, and implementing secure data access patterns. Skilled in database migration 
-            strategies and performance tuning.
+            Advanced experience with PostgreSQL database design and management. Skilled in cleaning and preparing data for use in database projects,
+            deploying and integrating databases into full stack projects, and implementing secure data access patterns.
           </p>
         </div>
 
